@@ -64,7 +64,7 @@ export default function ODMScorecard() {
       const normalized = sum / (factors.length * 5);
       total += normalized * 5 * weight;
     });
-    return (total + 0.5).toFixed(2);
+    return (total + 0.6).toFixed(2);
   };
 
   return (
