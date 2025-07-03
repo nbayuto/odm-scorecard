@@ -39,8 +39,8 @@ const structure = [
     category: "NUDD",
     weight: 0.2,
     factors: [
-      "(x2)Contribute NUDD test procedures # before MSFT",
-      "(x2)First PR # entering main branch for NUDD feature(same score if same week)",
+      "Contribute NUDD test procedures # before MSFT",
+      "First PR # entering main branch for NUDD feature(same score if same week)",
       "First CC # on ADO(State: Pre-Existing)",
       "First FC # on ADO(State: Done)",
     ],
@@ -61,18 +61,27 @@ export default function Home() {
       const normalized = sum / (factors.length * 5);
       total += normalized * 5 * weight;
     });
-    return (total + 0.5).toFixed(2);
+    return (total + 0.6).toFixed(2);
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 20, backgroundColor: "#000", color: "#fff", minHeight: "100vh" }}>
       {structure.map(({ category, factors }) => (
         <div key={category} style={{ marginBottom: 20 }}>
           <h2><b>{category}</b></h2>
           {factors.map((factor) => (
             <div key={factor} style={{ margin: "10px 0" }}>
               <label>{factor}</label><br />
-              <select onChange={(e) => handleSelect(factor, e.target.value)}>
+              <select
+                onChange={(e) => handleSelect(factor, e.target.value)}
+                style={{
+                  backgroundColor: "#222",
+                  color: "#fff",
+                  border: "1px solid #555",
+                  padding: "4px",
+                  borderRadius: "4px"
+                }}
+              >
                 <option value="">-- Select Rating --</option>
                 {Object.keys(scoreMapping).map((label) => (
                   <option key={label} value={label}>{label}</option>
@@ -82,7 +91,20 @@ export default function Home() {
           ))}
         </div>
       ))}
-      <button onClick={() => alert(`Final Score: ${calculateScore()}`)}>計算總分</button>
+      <button
+        onClick={() => alert(`Final Score: ${calculateScore()}`)}
+        style={{
+          backgroundColor: "#1e90ff",
+          color: "#fff",
+          padding: "10px 20px",
+          border: "none",
+          borderRadius: "5px",
+          marginTop: "20px",
+          cursor: "pointer"
+        }}
+      >
+        計算總分
+      </button>
     </div>
   );
 }
