@@ -14,14 +14,11 @@ const structure = [
     weight: 0.5,
     factors: [
       "Automation rate on Commit/Daily/Weekly/Pre-Release",
-      "Daily run: 20% pre bring-up + 80% post bring-up",
       "Any failure with ADO BUG to keep tracking",
       "Any feature/bug fix with test case pair",
       "Test case for any feature/bug fix with full regression(Commit/Daily)",
       "Low test coverage escape",
-      "Bring-up NUDD CC rate",
-      "Use MSFT daily release binary to power on(N-1)",
-      "After bring up, PR back to main branch by 1 week",
+      "(New)Platform Feature Coverage (%)",
     ],
   },
   {
@@ -33,6 +30,7 @@ const structure = [
       "Build Block validation Schedule on time: 主動規劃",
       "Build Block validation report quality: 沒有偷懶且有明確判定",
       "Active Response: 主動回報任何問題與進度",
+      "(New)FW Validation (Meet SLA)",
     ],
   },
   {
